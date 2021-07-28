@@ -1,0 +1,9 @@
+<div class="sex">        
+  <section class="example-section">
+    <label class="example-margin">Methd of saving statistics:</label>
+    <mat-radio-group [(ngModel)]="labelPosition" [ngModelOptions]="{standalone: true}" (change)=setSettings()>
+      <mat-radio-button class="example-margin" value="before">In file</mat-radio-button>
+      <mat-radio-button class="example-margin" value="after">In base</mat-radio-button>
+    </mat-radio-group>
+  </section>         
+</div>

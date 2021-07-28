@@ -1,0 +1,42 @@
+
+<div class="container">    
+    <button mat-button (click)="goBack()" mat-button>go back</button>    
+    <form name="loginForm" [formGroup]="loginForm">
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              formControlName="email"
+              matInput
+              placeholder="Enter email address" required  
+              [(ngModel)]='email'
+                      
+            />
+            <mat-error *ngIf="!loginForm.controls['email'].valid">
+                Email is required
+              </mat-error>
+          </mat-form-field>
+        </div>    
+        <div>          
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>First name</mat-label>
+            <input [readonly]='edit' matInput required [(ngModel)]='firstName' [ngModelOptions]="{standalone: true}"
+            #inputFirstName2='ngModel'/>           
+        <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div>          
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input matInput required [(ngModel)]='lastName' [ngModelOptions]="{standalone: true}"
+            #inputLastName2='ngModel' [readonly]='edit'/>           
+   
+        </mat-form-field>
+        </div>         
+    <button mat-button (click)='edit = !edit; save()' >{{edit ? "Edit" : "Save"}}</button> 
+    <!-- [disabled]='(!inputLastName2.dirty && !edit && !inputFirstName2.dirty && !inputEmail.dirty)' -->
+      
+      </form>  
+</div>
