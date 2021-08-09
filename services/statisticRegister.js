@@ -55,6 +55,7 @@ module.exports.addEntry = async function(register, date, sex, user) {
                     data: arr2
                 })
              try {
+                // console.log(report, 1)
                  report.save()
              } 
              catch (e) {
@@ -77,6 +78,7 @@ module.exports.addEntry = async function(register, date, sex, user) {
     return latestLogin.date
  }
  function getUpdateFrequency (arrayOfRegister) {
+  //   console.log(arrayOfRegister)
  let dateOfRegister = new Date(arrayOfRegister.find(el => el.register === 'register').date) 
  let updateSum = arrayOfRegister.filter(el => el.register === 'update').length;
  let currentDate = new Date();

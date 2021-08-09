@@ -17,7 +17,7 @@ const app = express()
 
 const events = require('events')
 
-cron.schedule('0 22 * * *', ()=> {
+cron.schedule('* * * * *', ()=> {
     statisticRegister.makeReport()
    // if(shell.exec('dir').code !== 0){'something go wrong'}
 })
