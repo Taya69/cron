@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private userService: GetUserService) { }
   labelPosition: 'before' | 'after' = 'after';
   ngOnInit(): void {
-   
+   this.userService.getFirstSetting().subscribe(data => {
+     data.methodOfSaving === 'base' ? this.labelPosition = 'after' : this.labelPosition = 'before'
+   })
   }
   setSettings() {
     let methodOfSaving = this.labelPosition === 'before'? 'file' : 'base'
